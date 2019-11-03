@@ -1,0 +1,19 @@
+<nav>
+  <a routerLink="./list" routerLinkActive="active">
+    <img src="assets/list.png" data-toggle="tooltip" title="Afficher la liste des sessions" class="icon" />
+  </a>
+  <a routerLink="./add" routerLinkActive="active">
+    <img src="assets/add.png" title="Ajouter à la liste des sessions" class="icon" />
+  </a>
+  <a  [routerLink]="['./edit', 1]" routerLinkActive="active">
+    <img src="assets/edit.png" title="Modifier une session" class="icon" />
+  </a>
+</nav>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script>
+  $('[data-toggle="tooltip"]').tooltip();
+</script>
+<section>
+  <router-outlet></router-outlet>
+</section>

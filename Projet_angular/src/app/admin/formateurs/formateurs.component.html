@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <button class="btn btn-success m-2 center" title="ajouter" (click)="openAjout(ajout)">
+      <i class="fas fa-plus-circle"></i>
+    </button>
+    <button class="btn btn-success m-2" title="actualiser" (click)="actualiser()">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 ml-5">
+    <table class="table table-striped mt-3 text-white text-center" *ngIf="formateurs$ | async as formateurs">
+      <tr class="text-center"><th colspan="6"><b translate><font color="#F0F8FF">Liste des formateurs :</font></b></th></tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Nombre de sessions effectuées</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+
+      <tr *ngFor="let formateur of formateurs; let i = index">
+        <td>{{ formateur.name }}</td>
+        <td>{{ formateur.lastName }}</td>
+        <td>{{ formateur.etat }}</td>
+        <td>{{ formateur.nbSessions }}</td>        
+        <td>
+          <button class="btn btn-info" title="modifier" (click)="open(modif, formateur)">
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" title="supprimer" (click)="onDelete(formateur)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #modif let-modal>
+  <div class="modal-header bg-info text-white">
+    <h4 class="modal-title" id="modal-basic-title">Modifier formateur</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #formateurForm="ngForm" (ngSubmit)="onEdit(formateurForm.value)">
+      <div class="form-row">
+        <div class="col">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="nom" [(ngModel)]="formateurModif.name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="prenom">Prénom</label>
+          <input type="text" class="form-control" name="prenom" id="prenom" [(ngModel)]="formateurModif.lastName" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-info my-3" >Enregisrer</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #ajout let-modal>
+  <div class="modal-header bg-success text-white">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter formateur</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #formateurForm="ngForm" (ngSubmit)="ajouter(formateurForm.value)">
+      <div class="form-row">
+        <div class="col">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="nom" ngModel required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="prenom">Prénom</label>
+          <input type="text" class="form-control" name="prenom" id="prenom" ngModel required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-success my-3" >Enregisrer</button>
+    </form>
+  </div>
+</ng-template>

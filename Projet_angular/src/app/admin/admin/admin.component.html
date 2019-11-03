@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="./dashboard"><i class="fas fa-user-shield"></i><b class="ml-3">Espace Admin</b></a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a routerLink="" class="nav-link"><i class="fas fa-sign-out-alt"></i><b class="ml-2">Déconnexion</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column mt-3">
+          <li class="nav-item mt-3">
+            <a class="nav-link text-danger" routerLink="./dashboard">
+              <i class="fas fa-book-open"></i><b class="ml-3">Dashboard</b>
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link text-danger" routerLink="./sessions">
+              <i class="fas fa-list-alt"></i><b class="ml-3">Sessions</b>
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link text-danger" routerLink="./formateurs">
+              <i class="fas fa-user-tie"></i><b class="ml-3">Formateurs</b>
+            </a>
+          </li>
+          <li class="nav-item mt-3">
+            <a class="nav-link text-danger" routerLink="./participants">
+              <i class="fas fa-users"></i><b class="ml-3">Participant</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <section>
+          <router-outlet></router-outlet>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-4 col-md-6 my-2 text-center">
+      <div class="card text-center">
+        <img src="../../../assets/sessions.jpg" alt="WebDev" class="card-img-top img-fluid">
+        <h3 class="h5 py-3 text-warning"><b>{{ nbSessions }}</b> Sessions</h3>
+      </div>
+    </div>
+  
+    <div class="col-lg-4 col-md-6 my-2 text-center">
+      <div class="card text-center">
+        <img src="../../../assets/participants.jpg" alt="WebDev" class="card-img-top img-fluid">
+        <h3 class="h5 py-3 text-success"><b>{{ nbParticipants }}</b> Participants</h3>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 my-2 text-center">
+      <div class="card text-center">
+        <img src="../../../assets/formateur.jpg" alt="WebDev" class="card-img-top img-fluid">
+        <h3 class="h5 py-3 text-primary"><b>{{ nbFormateurs }}</b> Formateur</h3>
+      </div>
+    </div>
+
+  </div>
+  <div class="container">
+    <br>
+    <table class="table table-bordered text-info bg-white">
+      <thead class="text-center text-white">
+        <tr class="bg-info">
+          <th scope="col text-info">Track</th>
+          <th scope="col text-info">Nombre de sessions (Totale : {{ nbSessions }})</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <th scope="row">MEAN Stack</th>
+          <td>{{ nbSessionsMean }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Android</th>
+          <td>{{ nbSessionsAndroid }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Ionic</th>
+          <td>{{ nbSessionsIonic }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Angular</th>
+          <td>{{ nbSessionsAngular }}</td>
+          </tr>
+        <tr>
+            <th scope="row">NodeJS</th>
+            <td>{{ nbSessionsNode }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Xamarin</th>
+          <td>{{ nbSessionsXam }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Symphony</th>
+          <td>{{ nbSessionsSymphony }}</td>
+        </tr> 
+        <tr>
+          <th scope="row">Laravel</th>
+          <td>{{ nbSessionsLaravel }}</td>
+        </tr> 
+        <tr>
+          <th scope="row">Swift</th>
+          <td>{{ nbSessionsSwift }}</td>
+        </tr> 
+      </tbody>
+    </table>
+    
+</div> 
+</div>

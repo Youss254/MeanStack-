@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <button class="btn btn-success m-2 center" title="ajouter" (click)="openadd(content1)">
+      <i class="fas fa-plus-circle"></i>
+    </button>
+    <button class="btn btn-success m-2" title="actualiser" (click)="actualiser()">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 ml-5">
+    <table class="table table-striped mt-3 text-white text-center">
+      <tr class="text-center"><th colspan="5"><b translate><font color="#F0F8FF">Liste des participants :</font></b></th></tr>
+      <th scope="col">Nom et prénom</th>
+      <th scope="col">CIN</th>
+      <th scope="col">Nombre de sessions effectuées</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+      <tr *ngFor="let participant of participants$">
+        <td><font color="#F0F8FF">{{ participant.name }}</font></td>
+        <td><font color="#F0F8FF">{{ participant.cin }}</font></td>
+        <td class="text-center"><font color="#F0F8FF">{{ participant.nbsessions }}</font></td>        
+        <td class="text-center">
+            <button class="btn btn-info" title="modifier" (click)="open(content,participant)">
+              <i class="fas fa-edit"></i>
+            </button>
+          </td>
+          <td class="text-center">
+            <button class="btn btn-danger" (click)="onDelete(participant)" title="supprimer">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<ng-template #content id="content" let-modal>
+    <div class="modal-header bg-info text-white">
+      <h4 class="modal-title" id="modal-basic-title">Modification d'un participant</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #participantForm="ngForm" (ngSubmit)="onEdit(participantForm.value)">
+        <div class="form-group">
+          <label for="nomprenom">Nom et prénom</label>
+          <div class="input-group">
+            <input type="text" name="nomprenom" id="nomprenom" [(ngModel)]="participantModif.name" class="form-control" placeholder="nom prénom" required>
+          </div>
+          <label for="CIN">CIN</label>
+          <div class="input-group">
+            <input type="number" name="CIN" id="CIN" [(ngModel)]="participantModif.cin" class="form-control" placeholder="XXXXXXXX" required>
+          </div>
+          <label for="nbresess">Nombre de sessions effectuées</label>
+          <div class="input-group">
+            <input type="number" name="nbresess" id="nbresess" [(ngModel)]="participantModif.nbsessions" class="form-control" placeholder="0" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-outline-info">Enregistrer</button>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #content1 let-modal>
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title" id="modal-basic-title">Ajout d'un participant</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="ajouter(addForm.value)">
+          <div class="form-group">
+            <label for="np">Nom et prénom</label>
+            <div class="input-group">
+              <input type="text" name="nom" id="nom" class="form-control" placeholder="nom prénom" ngModel required>
+            </div>
+            <label for="cin">CIN</label>
+            <div class="input-group">
+              <input type="number" name="cin" id="cin" class="form-control" placeholder="XXXXXXXX" ngModel required>
+            </div>
+            <label for="nbsessions">Nombre de sessions effectuées</label>
+            <div class="input-group">
+              <input type="number" name="nbSessions" id="nbSessions" class="form-control" placeholder="0" ngModel required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-success my-3">Enregistrer</button>
+        </form>
+      </div>
+    </ng-template>
